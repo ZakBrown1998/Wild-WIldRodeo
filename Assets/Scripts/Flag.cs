@@ -5,7 +5,7 @@ using UnityEngine;
 //Extra using statement to allow us to use the scene management functions
 using UnityEngine.SceneManagement;
 
-public class Door : MonoBehaviour
+public class Flag : MonoBehaviour
 {
 
     //Variable to let us add to the score

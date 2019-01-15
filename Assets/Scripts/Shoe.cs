@@ -8,7 +8,7 @@ public class Shoe : MonoBehaviour {
     //Public so we can drag and drop
     public Score scoreObject;
 
-    // Variable to hol the coin's point value
+    // Variable to hold the horseshoe's value
     //It's public so we can change it in the editor
 
     public int ShoeValue;
@@ -23,7 +23,7 @@ public class Shoe : MonoBehaviour {
 		
 	}
 
-    //Unity calls this function when our coin touches any other onject
+    //Unity calls this function when the horseshoe touches any other object
     //If the player touched it, the coin should vanish and score will go up
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -38,7 +38,7 @@ public class Shoe : MonoBehaviour {
             //Add to the score based on our value
             scoreObject.AddScore(ShoeValue);
 
-            //Destroy the gameObject that this script is attached to (The Coin)
+            //Destroy the gameObject that this script is attached to (The Horseshoe)
             Destroy(gameObject);
         }
     }
