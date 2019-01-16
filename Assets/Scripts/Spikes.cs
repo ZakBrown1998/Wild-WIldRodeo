@@ -14,7 +14,7 @@ public class Spikes : MonoBehaviour {
         //Only do something if the thing we ran into was in fact the player aka playerScript is not null
         if (playerScript != null)
         {
-            // playerScript.Kill();
+             playerScript.Kill();
 
         }
     }

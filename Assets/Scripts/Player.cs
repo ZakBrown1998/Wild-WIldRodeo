@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     // designer variables
     public float speed = 10;
-    public float jumpSpeed = 10; 
+    public float jumpSpeed = 10;
     public Rigidbody2D physicsBody;
     public string horizontalAxis = "Horizontal";
     public string jumpButton = "Jump";
@@ -60,29 +60,29 @@ public class Player : MonoBehaviour
         {
             playerSprite.flipX = false;
         }
-    
 
 
 
-    //Jumping
 
-    //Detect if we are touching the ground
-    //Get the LayerMask from Unity using the name of the layer
-    LayerMask groundLayerMask = LayerMask.GetMask("Ground");
+        //Jumping
 
-    //Ask the player's collider if we are touching the LayerMask
-    bool touchingGround = playerCollider.IsTouchingLayers(groundLayerMask);
+        //Detect if we are touching the ground
+        //Get the LayerMask from Unity using the name of the layer
+        LayerMask groundLayerMask = LayerMask.GetMask("Ground");
+
+        //Ask the player's collider if we are touching the LayerMask
+        bool touchingGround = playerCollider.IsTouchingLayers(groundLayerMask);
 
         playerAnimator.SetBool("TouchingGround", touchingGround);
 
         bool jumpButtonPressed = Input.GetButtonDown(jumpButton);
-    if (jumpButtonPressed == true && touchingGround == true)
-   {
-        //We have pressed Jump so we should set our upward velocity to ouyr jumpSpeed
-  velocity.y = jumpSpeed;
+        if (jumpButtonPressed == true && touchingGround == true)
+        {
+            //We have pressed Jump so we should set our upward velocity to ouyr jumpSpeed
+            velocity.y = jumpSpeed;
 
-        //Give the velocity to the rigidbody
- physicsBody.velocity = velocity;
+            //Give the velocity to the rigidbody
+            physicsBody.velocity = velocity;
         }
 
         if (physicsBody.velocity.y < 0)
@@ -91,6 +91,9 @@ public class Player : MonoBehaviour
             playerAnimator.SetBool("Falling", false);
 
     }
+    
+    
+
 
  public void Kill()
 {
