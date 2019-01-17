@@ -6,7 +6,6 @@ public class Enemy : MonoBehaviour
 {
 
     //Unity calls this function automatically when the enemy touches any other object.
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Checks if the object the enemy has collided with has a player script and is therefore the player.
@@ -15,6 +14,7 @@ public class Enemy : MonoBehaviour
         //Kills the player if they collide with the enemy.
         if (playerScript != null)
         {
+
             playerScript.Kill();
 
         }

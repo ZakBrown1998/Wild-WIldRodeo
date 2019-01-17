@@ -11,6 +11,7 @@ public class Lives : MonoBehaviour {
 
 	// Used for initialization.
 	void Start () {
+
         //Used to set the player's total lives to 3.
         numericalLives = PlayerPrefs.GetInt("lives", 3);
         livesText.text = numericalLives.ToString();
@@ -20,22 +21,31 @@ public class Lives : MonoBehaviour {
 	void Update () {
 		
 	}
+
     //A Function used to take away one of the player's lives when they die.
     public void LoseLife()
     {
+
         //Takes one life away from the player.
         numericalLives = numericalLives - 1;
         livesText.text = numericalLives.ToString();
+
     }
+
     //Used to write the updated lives count to memory.
     public void SaveLives()
+
     {
+
         //Used to set the lives count to the new value.
         PlayerPrefs.SetInt("lives", numericalLives);
+
     }
+
     //Used to determine if the player is in the game over state or not base don their remianing lives.
     public bool isGameOver()
     {
+
         if (numericalLives <= 0)
         {
             return true;            

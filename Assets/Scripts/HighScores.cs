@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class HighScores : MonoBehaviour {
 
     //Used to display high scores.
-    public List<Text> highScoresDisplays = new List<Text>();
+    public List<Text> highScoreDisplays = new List<Text>();
 
     //Internal data for score values.
     private List<int> highScoreData = new List<int>();
@@ -25,7 +25,7 @@ public class HighScores : MonoBehaviour {
         //Checks if the current score is a new high score.
         bool haveNewHighScore = IsNewHighScore(currentScore);
 
-        if (haveNewHighScore = true)
+        if (haveNewHighScore == true)
         {
             //Adds new score to the data. 
             AddScoreToList(currentScore);
@@ -43,10 +43,10 @@ public class HighScores : MonoBehaviour {
     //Function used to load the high score data.
     private void LoadHighScoreData()
     {
-        for (int i = 0; i < highScoresDisplays.Count; ++i)
+        for (int i = 0; i < highScoreDisplays.Count; ++i)
         {
             //Uses the loop index and gets the name for the PlayerPrefs key.
-            string prefsKey = "highScore" + 1.ToString();
+            string prefsKey = "highScore" + i.ToString();
 
             //Use this key to get the high score value from PlayerPrefs.
             int highScoreValue = PlayerPrefs.GetInt(prefsKey, 0);
@@ -59,17 +59,18 @@ public class HighScores : MonoBehaviour {
     //Function used to update the visual display.
     private void UpdateVisualDisplay()
     {
-        for (int i = 0; i < highScoresDisplays.Count; ++i)
+        for (int i = 0; i < highScoreDisplays.Count; ++i)
         {
             //Finds the specific text and numbers in the list and sets the text to the numerical score.
-            highScoresDisplays[i].text = highScoreData[i].ToString();
+            highScoreDisplays[i].text = highScoreData[i].ToString();
         }
     }
 
     private bool IsNewHighScore(int scoreToCheck)
     {
         //Loops through the high scores and checks if the new score is higher than any of them.
-        for (int i = 0; i < highScoresDisplays.Count; ++i)
+        for (int i = 0; i < highScoreDisplays.Count; ++i)
+
         {
             //Confirms if the new score is higher than any of the high scores on the loop.
             if (scoreToCheck > highScoreData[i])
@@ -82,11 +83,13 @@ public class HighScores : MonoBehaviour {
         //Confirms the new score is not higher than any of the high scores.
         return false;
     }
+
     //Adds the player's new high score to the list.
     private void AddScoreToList(int newScore)
     { 
-         for (int i = 0; i<highScoresDisplays.Count; ++i )
-    {//Checks if the new score is higher than the high score data.
+         for (int i = 0; i<highScoreDisplays.Count; ++i )
+
+            {//Checks if the new score is higher than the high score data.
             if (newScore > highScoreData [i])
             {
                 //The new score is higher
@@ -103,10 +106,11 @@ public class HighScores : MonoBehaviour {
     }
 
   }
+
     //Saves the high score data.
     private void SaveHighScoreData()
     {
-        for (int i = 0; i < highScoresDisplays.Count; ++i)
+        for (int i = 0; i < highScoreDisplays.Count; ++i)
         {
             //Gets the name for the PlayerPrefs key using the loop index.
             string prefsKey = "highScore" + i.ToString();
@@ -121,11 +125,5 @@ public class HighScores : MonoBehaviour {
         //Saves the PlayerPrefs to disk.
         PlayerPrefs.Save();
     }
-
-  
-
-
-
-
 
 }

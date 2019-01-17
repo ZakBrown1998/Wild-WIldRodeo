@@ -16,7 +16,7 @@ public class Score : MonoBehaviour
     //Private to prevent other scripts from changing it directly.
     //Defaults the score to 0 when the game is started.
 
-    private int numericalScore = 0;
+ private int numericalScore = 0;
 
     // Used for initialization.
     void Start()

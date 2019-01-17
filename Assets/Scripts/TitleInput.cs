@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 public class TitleInput : MonoBehaviour
 {
 
-    //Used to make the game scene transition from the current one to a new one when the correct input button is pressed by the player.
+    
     
     void Update()
     {
+        //Used to make the game scene transition from the current one to a new one.
+        //The transisition depends on the correct input button being pressed by the player.
         if (Input.GetButtonDown("Submit")) { SceneManager.LoadScene("Controls"); }
     }
 }

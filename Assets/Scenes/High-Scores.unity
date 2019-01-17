@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e09eef173e122d449b5f4d7e821a2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highScoresDisplays:
+  highScoreDisplays:
   - {fileID: 985062929}
   - {fileID: 1688671736}
   - {fileID: 1208224334}
