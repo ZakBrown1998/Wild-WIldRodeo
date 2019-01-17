@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
-    // designer variables
+    // Designer variables
     public float speed = 10;
     public float jumpSpeed = 10;
     public Rigidbody2D physicsBody;
@@ -18,41 +18,41 @@ public class Player : MonoBehaviour
     public SpriteRenderer playerSprite;
     public Collider2D playerCollider;
 
-    //variable to keep a reference to the lives display object
+    //A variable used to keep a reference to the lives display object.
     public Lives livesObject;
 
 
-    // Use this for initialization
+    // Used for initialization/
     void Start()
     {
 
     }
 
-    // Update is called once per frame
+    // Update is called once per frame.
     void Update()
     {
 
-        // Get axis input from Unity
+        // Gets axis input from Unity.
         float leftRight = Input.GetAxis(horizontalAxis);
 
 
-        // Create direction vector from axis input
+        // Creates direction vector from axis input.
         Vector2 direction = new Vector2(leftRight, 0);
 
-        // Make direction vector length 1
+        // Makes direction vector length 1.
         direction = direction.normalized;
 
-        // Calculate velocity
+        // Calculates velocity
         Vector2 velocity = direction * speed;
         velocity.y = physicsBody.velocity.y;
 
-        // Give the velocity to the rigidbody
+        // Gives the velocity to the rigidbody.
         physicsBody.velocity = velocity;
 
-        //Tell the animator our speed
+        //Gives the animatior the walking speed.
         playerAnimator.SetFloat("walkSpeed", Mathf.Abs(velocity.x));
 
-        //Flip our sprites if we're moving backward
+        //Flips the sprite if it is moving backward.
         if (velocity.x < 0)
         {
             playerSprite.flipX = true;
@@ -67,25 +67,25 @@ public class Player : MonoBehaviour
 
         //Jumping
 
-        //Detect if we are touching the ground
-        //Get the LayerMask from Unity using the name of the layer
+        //Detects if the player is touching the ground.
+        //Gets the LayerMask from Unity using the name of the layer.
         LayerMask groundLayerMask = LayerMask.GetMask("Ground");
 
-        //Ask the player's collider if we are touching the LayerMask
+        //Checks the player's collider to see if they are touching the LayerMask.
         bool touchingGround = playerCollider.IsTouchingLayers(groundLayerMask);
 
         playerAnimator.SetBool("TouchingGround", touchingGround);
-
+        //Checks to see if the jump button has been pressed.
         bool jumpButtonPressed = Input.GetButtonDown(jumpButton);
         if (jumpButtonPressed == true && touchingGround == true)
         {
-            //We have pressed Jump so we should set our upward velocity to ouyr jumpSpeed
+            //Sets the upward velocity to the player's jump speed when they have pressed jump.
             velocity.y = jumpSpeed;
 
-            //Give the velocity to the rigidbody
+            //Give the velocity to the rigidbody.
             physicsBody.velocity = velocity;
         }
-
+        //Sets the player to a falling state when their velocity is lower than 0.
         if (physicsBody.velocity.y < 0)
             playerAnimator.SetBool("Falling", true);
         else
@@ -95,41 +95,36 @@ public class Player : MonoBehaviour
     
     
 
-
+//Used to kill the player and program the after effects.
  public void Kill()
 {
-        //Take away a life and save that change
+  //Takes away a life..
   livesObject.LoseLife();
-
+  //Saves the change when the life is taken away.
   livesObject.SaveLives();
 
-        //Check if it's game over
+        //Checks if it's game over.
 
       bool gameOver = livesObject.isGameOver();
 
 
-        //If it is game over, load the game over screen
+        //If it is game over the game over screen is loaded.
 
-//
+//Checks if the game is in game over state
    if (gameOver == true)
        {
+            //Resets the player's lives
             livesObject.ResetLives();
+            //Loads the game over scene.
            SceneManager.LoadScene("GameOver");
 
       }
         else
       {
 
-
-            //If it is not game over, reset the current level to restart from the beginning
-
-
-            //Reset the current level to restart from the beginning
-            //First, ask unity what the current level is
-
-
+//If it is not game over, the current level is reset
  Scene currentLevel = SceneManager.GetActiveScene();
-
+//Checks Unity to find the current level
  SceneManager.LoadScene(currentLevel.buildIndex);
 }
 

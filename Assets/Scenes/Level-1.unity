@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4edc0a0ba1cb9f4c9dac5f2a9cf149b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreObject: {fileID: 0}
+  scoreObject: {fileID: 317946661}
   sceneToLoad: Level-2
 --- !u!95 &64540549
 Animator:

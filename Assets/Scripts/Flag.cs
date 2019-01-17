@@ -2,31 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Extra using statement to allow us to use the scene management functions
+//Allow use of the scene management functions.
 using UnityEngine.SceneManagement;
 
 public class Flag : MonoBehaviour
 {
 
-    //Variable to let us add to the score
-    //Public so we can drag and drop
+    //Allows access to the player's score.
     public Score scoreObject;
 
-    //Designer Variables
+    //Allows the next scene to be loaded after the player collides with the flag.
     public string sceneToLoad;
 
+    //Runs a function when the player collides with the flag.
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Check if the thing that we collided with is the player (Aka has a player script)
+        //Checks if the thing the flag collided with is the player. (Aka has a player script)
         Player playerScript = collision.collider.GetComponent<Player>();
         {
-            //Only do something if the thing we ran into was in fact the player aka playerScript is not null
+            //Function to save the player's score and load the next level.
             if (playerScript != null)
             {
-                //save the score using our score object reference
+                //saves the score using the score object reference.
                 scoreObject.SaveScore();
 
-                //Load the next level
+                //Loads the next level.
                 SceneManager.LoadScene(sceneToLoad);
             }
         }

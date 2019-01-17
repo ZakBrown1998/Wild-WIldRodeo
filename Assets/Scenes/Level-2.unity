@@ -3344,7 +3344,6 @@ MonoBehaviour:
   playerSprite: {fileID: 1081051362}
   playerCollider: {fileID: 1081051366}
   livesObject: {fileID: 292795324}
-  scoreObject: {fileID: 1331925003}
 --- !u!50 &1081051365
 Rigidbody2D:
   serializedVersion: 4

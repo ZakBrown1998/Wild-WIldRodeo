@@ -8,12 +8,13 @@ public class Spikes : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Check if the thing tht we collided with is the player (Aka has a player script)
+        //Check if the thing the spikes collided with is the player (i.e. has a player script)
         Player playerScript = collision.collider.GetComponent<Player>();
 
-        //Only do something if the thing we ran into was in fact the player aka playerScript is not null
+        //Kills the player if they collide with the spikes.
         if (playerScript != null)
         {
+            //Kills the player.
              playerScript.Kill();
 
         }

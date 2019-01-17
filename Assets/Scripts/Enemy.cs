@@ -5,14 +5,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    //Unity calls this function automatically when the spikes touch any other object
+    //Unity calls this function automatically when the enemy touches any other object.
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Check if the thing tht we collided with is the player (Aka has a player script)
+        //Checks if the object the enemy has collided with has a player script and is therefore the player.
         Player playerScript = collision.collider.GetComponent<Player>();
 
-        //Only do something if the thing we ran into was in fact the player aka playerScript is not null
+        //Kills the player if they collide with the enemy.
         if (playerScript != null)
         {
             playerScript.Kill();
