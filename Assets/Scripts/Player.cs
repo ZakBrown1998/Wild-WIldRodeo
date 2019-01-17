@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     //variable to keep a reference to the lives display object
     public Lives livesObject;
 
+
     // Use this for initialization
     void Start()
     {
@@ -99,18 +100,22 @@ public class Player : MonoBehaviour
 {
         //Take away a life and save that change
   livesObject.LoseLife();
+
   livesObject.SaveLives();
 
         //Check if it's game over
 
       bool gameOver = livesObject.isGameOver();
 
+
         //If it is game over, load the game over screen
 
 //
    if (gameOver == true)
        {
+            livesObject.ResetLives();
            SceneManager.LoadScene("GameOver");
+
       }
         else
       {
@@ -119,7 +124,7 @@ public class Player : MonoBehaviour
             //If it is not game over, reset the current level to restart from the beginning
 
 
-            //Reset the cuurent level to restart from the beginning
+            //Reset the current level to restart from the beginning
             //First, ask unity what the current level is
 
 
@@ -129,7 +134,7 @@ public class Player : MonoBehaviour
 }
 
  }
-
+    
 }
 
 

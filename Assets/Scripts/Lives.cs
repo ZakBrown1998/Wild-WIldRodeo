@@ -33,11 +33,17 @@ public class Lives : MonoBehaviour {
     {
         if (numericalLives <= 0)
         {
-            return true;
+            return true;            
         }
         else
         {
             return false;
         }
     }
+    [ContextMenu("ResetLives")]
+        public void ResetLives()
+    {
+        PlayerPrefs.DeleteKey("lives");
+    }
+
 }

@@ -8,17 +8,17 @@ using UnityEngine.SceneManagement;
 
 public class StartButton : MonoBehaviour {
 
-   //This will be called by the Button component
-   //When the button is clicked
-    public void StartGame()
+    //This will be called by the Button component
+    //When the button is clicked
+    void Update()
     {
+
+        if (Input.GetButtonDown("Submit")) { SceneManager.LoadScene("Level-1"); }
         //Reset the Score
         PlayerPrefs.DeleteKey("Score");
 
         //Reset the Score
         PlayerPrefs.DeleteKey("Lives");
-
-        SceneManager.LoadScene("Level-1");
     }
 	
 }

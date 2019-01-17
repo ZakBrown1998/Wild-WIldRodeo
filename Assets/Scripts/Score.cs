@@ -29,7 +29,10 @@ public class Score : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
+
+        PlayerPrefs.SetInt("Score", numericalScore);
 		
 	}
 
@@ -48,5 +51,10 @@ public class Score : MonoBehaviour {
 public void SaveScore()
     {
         PlayerPrefs.SetInt("score", numericalScore);
+    }
+    [ContextMenu("ResetScore")]
+    public void ResetScore()
+    {
+        PlayerPrefs.DeleteKey("score");
     }
 }

@@ -4,14 +4,13 @@ using UnityEngine;
 
 using UnityEngine.SceneManagement;
 
-public class TitleButton : MonoBehaviour {
+public class TitleButton : MonoBehaviour
+{
 
-    //Called when title button is clicked
-    public void GoToTitle()
+    //Used to make the game scene transition from the current one to a new one when the correct input button is pressed by the player.
+    
+    void Update()
     {
-        //Return to title scene
-        SceneManager.LoadScene("Level-1");
-}
-
-
+        if (Input.GetButtonDown("Submit")) { SceneManager.LoadScene("Controls"); }
     }
+}
